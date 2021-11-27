@@ -11,5 +11,15 @@ def askUser():
 userSentence = askUser()
 
 #Step 2: Add references for vowels and consonants.
-vowels = ['aeiou']
-consonants = ['bcdfghjklmnpqrstvwxyz']
+vowels = ['aeiouAEIOU']
+consonants = ['bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ']
+
+#Step 3: Do the counting program.
+
+##Word Counter
+def wordCounter():
+    splitSentence = userSentence.split()
+    count = len(splitSentence)
+    return count
+wordCount = wordCounter()
+print(wordCount)
