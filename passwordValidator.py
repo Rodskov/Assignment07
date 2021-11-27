@@ -17,17 +17,16 @@ userPass = askUser()
 charCounter = 0
 for char in userPass:
     charCounter += 1
-    if charCounter<15:
-        greaterFifteen = False
-    else:
+    if charCounter>14:
         greaterFifteen = True
+    else:
+        greaterFifteen = False
 
 #B. Make sure it has at least one capital letter.
-for char in userPass:
-    if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-        capLetter = True
-    else:
-        capLetter = False
+if any(char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" for char in userPass):
+    capLetter = True
+else:
+    capLetter = False
 
 #C. Make sure it has at least one number.
 if any(char.isdigit() for char in userPass):
@@ -41,3 +40,30 @@ if any(char in specChar for char in userPass):
     specialChar = True
 else:
     specialChar = False
+
+#Tell the user if the password is valid or not.
+if greaterFifteen:
+    if capLetter:
+        if numPresent:
+            if specialChar:
+                print("Your password is VALID!")
+            else:
+                print("Your password is INVALID!\nAdd at least 1 special character.")
+        else:
+            if specialChar:
+                print("Your password is INVALID!\nAdd at least 1 number.")
+            else:
+                print("Your password is INVALID!\nAdd at least 1 number.\nAdd at least 1 special character.")
+    else:
+        if numPresent:
+            if specialChar:
+                print("Your password is INVALID!\nAdd at least 1 capital letter")
+            else:
+                print("Your password is INVALID!\nAdd at least 1 capital letter\nAdd at least 1 special character.")
+        else:
+            if specialChar:
+                print("Your password is INVALID!\nAdd at least 1 capital letter\nAdd at least 1 number.")
+            else:
+                print("Your password is INVALID!\nAdd at least 1 capital letter\nAdd at least 1 number.\nAdd at least 1 special character.")
+else:
+    print("Your password is INVALID!\nMinimum password length is 15 characters.")
