@@ -26,13 +26,11 @@ for char in userPass:
 capCounter = 0
 for char in userPass:
     if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-        capCounter += 1
-        if capCounter >= 1:
-            capLetter = True
-        else:
-            capLetter = False
+        capLetter = True
+    else:
+        capLetter = False
 
 if capLetter == True:
-    print("Oks")
+    print("OKS")
 else:
-    print("ayaw")
+    print("AYAW")
