@@ -14,17 +14,25 @@ def askUser():
 userPass = askUser()
 
 #A. Make sure the password is greater than 15 letters
-counter = 0
+charCounter = 0
 for char in userPass:
-    counter += 1
-    if counter<15:
+    charCounter += 1
+    if charCounter<15:
         greaterFifteen = False
     else:
         greaterFifteen = True
 
 #B. Make sure it has at least one capital letter
+capCounter = 0
 for char in userPass:
-    if char in ("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-        capLetter = True
-    else:
-        capLetter = False
+    if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+        capCounter += 1
+        if capCounter >= 1:
+            capLetter = True
+        else:
+            capLetter = False
+
+if capLetter == True:
+    print("Oks")
+else:
+    print("ayaw")
